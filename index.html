@@ -2,11 +2,8 @@
 <html lang="en">
 
 <head>
-    <!-- Core Document Settings -->
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <!-- SEO & Search Engine Optimization -->
     <title>Creative College | Graphics Design, Cosmetology & Computer Packages</title>
     <meta name="description"
@@ -61,52 +58,615 @@
 
     <!--  Progressive Web App (PWA) -->
     <link rel="manifest" href="manifest.json">
-    <meta name="application-name" content="Creative College">
+    <meta name="application-name" content="GIBS COLLEGE">
+    <meta name="description" content="GIBS COLLEGE - Transform Your Future">
+    <meta name="keywords" content="GIBS COLLEGE, GIBS, GIBS College, GIBS College Nairobi, GIBS College Kiambu">
+    <meta name="author" content="GIBS COLLEGE">
+    <meta name="robots" content="index, follow">
 
+    <title>GIBS COLLEGE - Transform Your Future</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fons    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="CSS/app.css">
 
-
-    <!-- 11. Structured Data (Optional but Recommended for SEO) -->
 </head>
 
 <body>
-    <header class="site-header">
-        <div class="top-bar">
-            <div class="container">
-                <nav class="utility-nav" aria-label="Utility Links">
-                    <ul>
-                        <li><a href="tel:+254700123456">📞 +254 700 123 456</a></li>
-                        <li><a href="mailto:admissions@creativecollege.ac.ke">✉️ admissions@creativecollege.ac.ke</a>
-                        </li>
-                    </ul>
-                </nav>
-                <nav class="social-nav" aria-label="Social Media Links">
-                    <ul>
-                        <li><a href="#" aria-label="Our Facebook Page"><i class="icon-facebook"></i></a></li>
-                        <li><a href="#" aria-label="Our Instagram Profile"><i class="icon-instagram"></i></a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-        <div class="main-header-area">
-            <div class="container">
-                <a href="index.html" class="logo">
-                    <img src="images/logo.svg" alt="Creative College Homepage"></a>
-                <nav class="main-nav" aria-label="Main Navigation">
-                    <button class="nav-toggle" aria-label="Open navigation menu"><span
-                            class="hamburger"></span></button>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="#courses">Our Courses</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="gallery.html">Student Work</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                    <a href="register.html" class="btn btn-primary">Apply Now</a>
-                </nav>
-            </div>
-        </div>
-    </header>
 
+    <div class="preloader" id="preloader">
+        <div class="loader"></div>
+        <h2 style="color: white; margin-top: 20px;">GIBS College Loading...</h2>
+    </div>
+
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <div class="top-bar">
+        <div class="contact-info">
+            <span>📧 info@gibscollege.com</span>
+            <span>📍 Githurai 45, Kiambu</span>
+        </div>
+        <div class="login">
+            <a href="#">🔐 Login/Registration</a>
+        </div>
+    </div>
+
+    <nav class="navbar" id="navbar">
+        <div class="navbar-container">
+            <div class="logo">
+                <div class="logo-icon">📚</div>
+                <span>GIBS COLLEGE</span>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#features">About Us</a></li>
+                <li class="has-dropdown">
+                    <a href="#courses">Courses</a>
+                    <div class="mega-menu">
+                        <div class="mega-menu-content">
+                            <div class="mega-menu-column">
+                                <h4>Technology Courses</h4>
+                                <ul>
+                                    <li><a href="#contact">Advanced Excel</a></li>
+                                    <li><a href="#contact">Graphic Design</a></li>
+                                    <li><a href="#contact">Certificate Courses</a></li>
+                                    <li><a href="#contact">Computer Programming</a></li>
+                                    <li><a href="#contact">Diploma Courses</a></li>
+                                    <li><a href="#contact">Short Courses</a></li>
+                                    <li><a href="#contact">CompTIA</a></li>
+                                    <li><a href="#contact">International Certification For Digital Literacy (ICDL)</a>
+                                    </li>
+                                    <li><a href="#contact">Microsoft</a></li>
+                                    <li><a href="#contact">Mobile App Development</a></li>
+                                </ul>
+                            </div>
+                            <div class="mega-menu-column">
+                                <h4>Networking & Database</h4>
+                                <ul>
+                                    <li><a href="#contact">Cisco Networking</a></li>
+                                    <li><a href="#contact">Oracle Solaris</a></li>
+                                    <li><a href="#contact">MySQL Database</a></li>
+                                    <li><a href="#contact">Oracle Database 19c</a></li>
+                                    <li><a href="#contact">SEO Oracle E-Business Suite</a></li>
+                                    <li><a href="#contact">Other Red Hat Courses</a></li>
+                                    <li><a href="#contact">Amazon Web Services (AWS)</a></li>
+                                    <li><a href="#contact">VMware</a></li>
+                                    <li><a href="#contact">Red Hat Enterprise Linux</a></li>
+                                </ul>
+                            </div>
+                            <div class="mega-menu-column">
+                                <h4>Enterprise & Security</h4>
+                                <ul>
+                                    <li><a href="#contact">Other Oracle Courses</a></li>
+                                    <li><a href="#contact">Suse Linux Enterprise</a></li>
+                                    <li><a href="#contact">Red Hat OpenShift</a></li>
+                                    <li><a href="#contact">Red Hat Ceph Storage</a></li>
+                                    <li><a href="#contact">Oracle Database Applications Development</a></li>
+                                    <li><a href="#contact">Red Hat OpenStack</a></li>
+                                    <li><a href="#contact">Project Management</a></li>
+                                    <li><a href="#contact">Cyber Security Training</a></li>
+                                    <li><a href="#contact">Information Technology Infrastructure Library (ITIL)</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+        <div class="mobile-menu" id="mobileMenu">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#features">About Us</a></li>
+                <li class="has-dropdown mobile-dropdown-trigger">
+                    <a href="javascript:void(0)">Courses <span class="dropdown-icon">▼</span></a>
+                    <div class="mobile-submenu">
+                        <h4>Technology Courses</h4>
+                        <ul>
+                            <li><a href="#contact">Advanced Excel</a></li>
+                            <li><a href="#contact">Graphic Design</a></li>
+                            <li><a href="#contact">Web Development</a></li>
+                            <li><a href="#contact">Mobile App Dev</a></li>
+                        </ul>
+                        <h4>Networking</h4>
+                        <ul>
+                            <li><a href="#contact">Cisco Networking</a></li>
+                            <li><a href="#contact">Cyber Security</a></li>
+                            <li><a href="#contact">AWS Cloud</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#">Login/Registration</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="hero-slider" id="home">
+        <div class="slide active">
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1920&auto=format&fit=crop"
+                class="slide-bg" alt="Students">
+            <div class="slide-overlay"></div>
+            <div class="content">
+                <h1>Refer a Friend and Earn KES 1,000 On Successful Enrollment!!!</h1>
+                <p>The more friends you refer, the more you earn</p>
+                <a href="#contact" class="btn">Refer Now and Earn KES 5,000</a>
+            </div>
+        </div>
+
+        <div class="slide">
+            <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=1920&auto=format&fit=crop"
+                class="slide-bg" alt="Coding">
+            <div class="slide-overlay"></div>
+            <div class="content">
+                <h1>Enroll Now For January Intake</h1>
+                <p>Discover Your Potential and Drive the Future of Technology</p>
+                <a href="#contact" class="btn">Join Us</a>
+            </div>
+        </div>
+
+        <div class="slide">
+            <img src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?q=80&w=1920&auto=format&fit=crop"
+                class="slide-bg" alt="Software">
+            <div class="slide-overlay"></div>
+            <div class="content">
+                <h1>Master the Art of Software Development</h1>
+                <p>Learn from industry experts and work on real-world projects</p>
+                <a href="#contact" class="btn">Get Started</a>
+            </div>
+        </div>
+
+        <button class="arrow prev" onclick="moveSlide(-1)">❮</button>
+        <button class="arrow next" onclick="moveSlide(1)">❯</button>
+
+        <div class="slider-dots">
+            <span class="dot active" onclick="goToSlide(0)"></span>
+            <span class="dot" onclick="goToSlide(1)"></span>
+            <span class="dot" onclick="goToSlide(2)"></span>
+        </div>
+    </div>
+
+    <div class="stats-section">
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-number counter" data-target="5000">0</div>
+                <div class="stat-label">Students Enrolled</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number counter" data-target="50">0</div>
+                <div class="stat-label">Expert Instructors</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number counter" data-target="25">0</div>
+                <div class="stat-label">Courses Available</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number counter" data-target="95">0</div>
+                <div class="stat-label">Job Placement Rate</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="features-section" id="features">
+        <div class="section-header">
+            <h2 class="section-title">Why Choose Us</h2>
+            <p class="section-subtitle">Discover what makes us the premier choice for software education in Kenya</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🎓</div>
+                <h3 class="feature-title">Expert Instructors</h3>
+                <p class="feature-desc">Learn from industry professionals with years of real-world experience in
+                    software development and technology.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💼</div>
+                <h3 class="feature-title">Job Placement</h3>
+                <p class="feature-desc">95% of our graduates secure employment within 3 months through our extensive
+                    industry partnerships.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🚀</div>
+                <h3 class="feature-title">Hands-On Projects</h3>
+                <p class="feature-desc">Build your portfolio with real-world projects that demonstrate your skills to
+                    potential employers.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3 class="feature-title">Flexible Learning</h3>
+                <p class="feature-desc">Study at your own pace with our flexible schedules designed for working
+                    professionals.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🌐</div>
+                <h3 class="feature-title">Modern Curriculum</h3>
+                <p class="feature-desc">Stay ahead with courses updated regularly to reflect the latest industry trends
+                    and technologies.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🤝</div>
+                <h3 class="feature-title">Career Support</h3>
+                <p class="feature-desc">Get lifetime career support including resume reviews, interview prep, and
+                    networking opportunities.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="courses-section" id="courses">
+        <div class="section-header">
+            <h2 class="section-title">Our Popular Courses</h2>
+            <p class="section-subtitle">Explore our comprehensive range of technology courses designed to launch your
+                career</p>
+        </div>
+        <div class="courses-grid">
+            <div class="course-card">
+                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=800&auto=format&fit=crop"
+                    alt="Web Development" class="course-image">
+                <div class="course-content">
+                    <span class="course-category">Development</span>
+                    <h3 class="course-title">Full Stack Web Development</h3>
+                    <p class="course-desc">Master HTML, CSS, JavaScript, React, Node.js, and databases to become a
+                        complete web developer.</p>
+                    <div class="course-meta">
+                        <span class="course-duration">⏱️ 6 Months</span>
+                        <a href="#contact" class="course-btn">Learn More →</a>
+                    </div>
+                </div>
+            </div>
+            <div class="course-card">
+                <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?q=80&w=800&auto=format&fit=crop"
+                    alt="Mobile Development" class="course-image">
+                <div class="course-content">
+                    <span class="course-category">Mobile</span>
+                    <h3 class="course-title">Mobile App Development</h3>
+                    <p class="course-desc">Build native and cross-platform mobile applications using React Native,
+                        Flutter, and Swift.</p>
+                    <div class="course-meta">
+                        <span class="course-duration">⏱️ 5 Months</span>
+                        <a href="#contact" class="course-btn">Learn More →</a>
+                    </div>
+                </div>
+            </div>
+            <div class="course-card">
+                <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=800&auto=format&fit=crop"
+                    alt="Data Science" class="course-image">
+                <div class="course-content">
+                    <span class="course-category">Data</span>
+                    <h3 class="course-title">Data Science & Analytics</h3>
+                    <p class="course-desc">Learn Python, machine learning, data visualization, and statistical analysis
+                        for data-driven careers.</p>
+                    <div class="course-meta">
+                        <span class="course-duration">⏱️ 4 Months</span>
+                        <a href="#contact" class="course-btn">Learn More →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="faq-section" id="faq">
+        <div class="section-header">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <p class="section-subtitle">Find answers to common questions about our programs and enrollment process</p>
+        </div>
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>What are the admission requirements?</h3>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>We welcome students from all backgrounds! Basic requirements include a high school diploma or
+                        equivalent, basic computer literacy, and a passion for technology. No prior programming
+                        experience is required for beginner courses.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>How long are the courses?</h3>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Course durations vary from 4 to 6 months depending on the program. We offer both full-time and
+                        part-time schedules to accommodate working professionals.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Do you offer job placement assistance?</h3>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes! We have a dedicated career services team that provides resume reviews, interview
+                        preparation, and connections to our network of hiring partners. 95% of our graduates find
+                        employment within 3 months.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>What is the fee structure and payment options?</h3>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>We offer flexible payment plans including full payment discounts, monthly installments, and
+                        scholarship opportunities. Contact our admissions team for detailed fee information and
+                        available financial aid options.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Can I study while working?</h3>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Absolutely! Our evening and weekend classes are specifically designed for working professionals.
+                        We also offer online and hybrid learning options for maximum flexibility.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>What technologies and tools will I learn?</h3>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Our curriculum covers industry-standard technologies including HTML, CSS, JavaScript, React,
+                        Node.js, Python, SQL, Git, and more. You'll work with the same tools used by top tech companies
+                        worldwide.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="contact-section" id="contact">
+        <div class="section-header">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="section-subtitle">Have questions? We'd love to hear from you. Send us a message and we'll respond
+                as soon as possible.</p>
+        </div>
+        <div class="contact-wrapper">
+            <div class="contact-form-container">
+                <form id="contactForm" class="contact-form" novalidate>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name *</label>
+                            <input type="text" id="firstName" name="firstName" required>
+                            <span class="error-message">Please enter your first name</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name *</label>
+                            <input type="text" id="lastName" name="lastName" required>
+                            <span class="error-message">Please enter your last name</span>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                            <span class="error-message">Please enter a valid email address</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                            <span class="error-message">Please enter a valid phone number</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="course">Course of Interest *</label>
+                        <select id="course" name="course" required>
+                            <option value="">Select a course</option>
+                            <option value="fullstack">Full Stack Web Development</option>
+                            <option value="mobile">Mobile App Development</option>
+                            <option value="datascience">Data Science & Analytics</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <span class="error-message">Please select a course</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                        <span class="error-message">Please enter your message</span>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <span class="btn-text">Send Message</span>
+                        <span class="btn-loader" style="display: none;">Sending...</span>
+                    </button>
+                    <div class="form-success" style="display: none;">
+                        ✓ Thank you! Your message has been sent successfully. We'll get back to you soon.
+                    </div>
+                </form>
+            </div>
+
+            <div class="contact-info-container">
+                <div class="contact-info-card">
+                    <div class="contact-info-icon">📍</div>
+                    <div>
+                        <h3>Visit Us</h3>
+                        <p>Westpoint Building<br>Mpaka Road, Westlands<br>Nairobi, Kenya</p>
+                    </div>
+                </div>
+                <div class="contact-info-card">
+                    <div class="contact-info-icon">📧</div>
+                    <div>
+                        <h3>Email Us</h3>
+                        <p>info@siteducation.com<br>admissions@siteducation.com</p>
+                    </div>
+                </div>
+                <div class="contact-info-card">
+                    <div class="contact-info-icon">📞</div>
+                    <div>
+                        <h3>Call Us</h3>
+                        <p>+254 700 000 000<br>+254 711 111 111</p>
+                    </div>
+                </div>
+                <div class="contact-info-card">
+                    <div class="contact-info-icon">🕒</div>
+                    <div>
+                        <h3>Office Hours</h3>
+                        <p>Monday - Friday: 8:00 AM - 6:00 PM<br>Saturday: 9:00 AM - 4:00 PM<br>Sunday: Closed</p>
+                    </div>
+                </div>
+                <div class="contact-map">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.819846278304!2d36.80419531475392!3d-1.2677850990631134!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f172c0a0a0a0a%3A0x0!2zMcKwMTYnMDQuMCJTIDM2wrA0OCcyNy4wIkU!5e0!3m2!1sen!2ske!4v1234567890123!5m2!1sen!2ske"
+                        width="100%" height="250" style="border:0; border-radius: 12px;" allowfullscreen=""
+                        loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="testimonials-section" id="testimonials">
+        <div class="section-header">
+            <h2 class="section-title">What Our Students Say</h2>
+            <p class="section-subtitle">Real stories from graduates who transformed their careers</p>
+        </div>
+        <div class="testimonials-container">
+            <div class="testimonial-slider">
+                <div class="testimonial-slide active">
+                    <p class="testimonial-text">"The course was incredibly comprehensive and the instructors were always
+                        available to help. I landed my dream job as a software developer within two months of
+                        graduation!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">JM</div>
+                        <div class="author-info">
+                            <h4>John Mwangi</h4>
+                            <p>Software Developer at Safaricom</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-slide">
+                    <p class="testimonial-text">"Best investment I ever made in my education. The hands-on projects gave
+                        me a portfolio that impressed every employer I interviewed with."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">AK</div>
+                        <div class="author-info">
+                            <h4>Alice Kimani</h4>
+                            <p>Frontend Developer at Andela</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-slide">
+                    <p class="testimonial-text">"The flexible learning schedule allowed me to study while working. The
+                        career support team helped me transition into tech seamlessly."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">DO</div>
+                        <div class="author-info">
+                            <h4>David Ochieng</h4>
+                            <p>Full Stack Developer at MPESA</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-dots">
+                <span class="testimonial-dot active" onclick="goToTestimonial(0)"></span>
+                <span class="testimonial-dot" onclick="goToTestimonial(1)"></span>
+                <span class="testimonial-dot" onclick="goToTestimonial(2)"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="cta-section">
+        <div class="cta-content">
+            <h2 class="cta-title">Ready to Start Your Journey?</h2>
+            <p class="cta-text">Join thousands of students who have transformed their careers through our programs.
+                Enroll today and get access to exclusive resources and career support.</p>
+            <div class="cta-buttons">
+                <a href="#contact" class="cta-btn-primary">Enroll Now</a>
+                <a href="#contact" class="cta-btn-secondary">Schedule a Call</a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <p>We're committed to providing world-class software education that prepares students for successful
+                    careers in technology.</p>
+                <div class="social-links">
+                    <a href="#" class="social-icon">📘</a>
+                    <a href="#" class="social-icon">🐦</a>
+                    <a href="#" class="social-icon">💼</a>
+                    <a href="#" class="social-icon">📷</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#features">About Us</a></li>
+                    <li><a href="#courses">Our Courses</a></li>
+                    <li><a href="#contact">Admissions</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="#">Student Portal</a></li>
+                    <li><a href="#">Learning Materials</a></li>
+                    <li><a href="#faq">FAQs</a></li>
+                    <li><a href="#">Alumni Network</a></li>
+                    <li><a href="#contact">Support</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <ul>
+                    <li>📧 info@gibscollege.com</li>
+                    <li>📞 +254 700 000 000</li>
+                    <li>📍 Githurai<br>Kiambu<br>Kenya</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 GIBS College. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of
+                    Service</a></p>
+            <p>Powered by <a href="https://implement.co.ke/">iMplement</a></p>
+        </div>
+    </footer>
+
+    <div class="chat-widget">
+        <button class="chat-button" id="chatButton">
+            💬 We're Offline<br><small>Leave a message</small>
+        </button>
+    </div>
+
+    <div class="scroll-top" id="scrollTop" onclick="scrollToTop()">
+        ↑
+    </div>
+
+    <div class="notification" id="notification">
+        <div class="notification-icon">🎉</div>
+        <div>
+            <strong>Limited Time Offer!</strong>
+            <p>Get 20% off on all courses for January intake</p>
+        </div>
+    </div>
+    <a href="https://wa.me/254700000000?text=Hello%2C%20I%20am%20interested%20in%20joining%20the%20Software%20Education%20Institute."
+        class="whatsapp-float" target="_blank" title="Chat with us on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 </body>
+<script src="JS/app.js"></script>
 
 </html>
