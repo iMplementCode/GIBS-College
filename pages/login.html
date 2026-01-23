@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Portal Login | GIBS College</title>
+    <link rel="stylesheet" href="../CSS/app.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* Internal CSS for Login Page Specifics
+        body {
+
+        } */
+    </style>
+</head>
+
+<body>
+
+    <a href="../index.html" class="back-home"><i class="fas fa-arrow-left"></i> Home</a>
+    <div class="container">
+        <div class="login-wrapper">
+            <div class="login-card">
+                <div class="login-header">
+                    <img src="../images/gibs-logo.jpeg" alt="GIBS Logo" class="login-logo">
+                    <h2>Student Portal</h2>
+                    <p>Welcome back! Please login to continue.</p>
+                </div>
+
+                <form class="login-form" id="loginForm">
+                    <div class="form-group">
+                        <label>Admission No / Email</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-user"></i>
+                            <input type="text" placeholder="Enter your ID or Email" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Password</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="passwordInput" placeholder="Enter your password" required>
+                            <i class="fas fa-eye toggle-password" id="togglePassword"></i>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <label class="remember-me">
+                            <input type="checkbox"> Remember Me
+                        </label>
+                        <a href="#" class="forgot-pass">Forgot Password?</a>
+                    </div>
+
+                    <button type="submit" class="login-btn">
+                        Login Now
+                    </button>
+                </form>
+
+                <div class="login-footer">
+                    Don't have an account? <a href="register.html">Enroll Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const togglePassword = document.querySelector('#togglePassword');
+        const passwordInput = document.querySelector('#passwordInput');
+
+        togglePassword.addEventListener('click', function () {
+            // Toggle the type attribute
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+
+            // Toggle the eye icon class
+            this.classList.toggle('fa-eye');
+            this.classList.toggle('fa-eye-slash');
+        });
+
+        // Simple Form Submit Prevention for Demo
+        document.getElementById('loginForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const btn = this.querySelector('.login-btn');
+            const originalText = btn.innerText;
+
+            btn.innerText = 'Authenticating...';
+            btn.style.opacity = '0.8';
+
+            setTimeout(() => {
+                alert('Login Successful! Redirecting to Dashboard...');
+                btn.innerText = originalText;
+                btn.style.opacity = '1';
+                // window.location.href = 'dashboard.html';
+            }, 1500);
+        });
+    </script>
+</body>
+
+</html>

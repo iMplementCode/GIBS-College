@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enroll Now | GIBS College</title>
+    <link rel="stylesheet" href="../CSS/app.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+    <a href="../index.html" class="back-home"><i class="fas fa-arrow-left"></i> Home</a>
+    <div class="enroll-header">
+        <h1>Student Registration</h1>
+        <p>Start your journey with GIBS College today. Fill in the details below.</p>
+    </div>
+
+    <div class="enroll-container">
+        <form id="enrollmentForm">
+
+            <h3 class="form-section-title"><i class="fas fa-user"></i> Personal Details</h3>
+            <div class="form-grid">
+                <div class="input-group">
+                    <label>First Name <span>*</span></label>
+                    <input type="text" name="firstName" placeholder="e.g. John" required>
+                </div>
+                <div class="input-group">
+                    <label>Last Name <span>*</span></label>
+                    <input type="text" name="lastName" placeholder="e.g. Doe" required>
+                </div>
+                <div class="input-group">
+                    <label>Email Address <span>*</span></label>
+                    <input type="email" name="email" placeholder="john@example.com" required>
+                </div>
+                <div class="input-group">
+                    <label>Phone Number <span>*</span></label>
+                    <input type="tel" name="phone" placeholder="0712 345 678" required>
+                </div>
+                <div class="input-group">
+                    <label>Gender</label>
+                    <select name="gender">
+                        <option value="">Select Gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Date of Birth</label>
+                    <input type="date" name="dob">
+                </div>
+            </div>
+
+            <h3 class="form-section-title"><i class="fas fa-graduation-cap"></i> Course Selection</h3>
+            <div class="form-grid">
+                <div class="input-group" style="grid-column: span 2;">
+                    <label>Select Course <span>*</span></label>
+                    <select name="course" required>
+                        <option value="">-- Choose a Program --</option>
+                        <optgroup label="Graphic Design">
+                            <option value="diploma">Diploma in Graphic Design (Level 6)</option>
+                            <option value="certificate">Certificate in Graphic Design (Level 5)</option>
+                            <option value="short-photoshop">Short Course: Adobe Photoshop</option>
+                            <option value="short-illustrator">Short Course: Adobe Illustrator</option>
+                            <option value="short-corel">Short Course: CorelDraw</option>
+                        </optgroup>
+                        <optgroup label="Computer Studies">
+                            <option value="packages">Computer Packages (Office Suite)</option>
+                            <option value="typing">Typing & Speed</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Preferred Intake</label>
+                    <select name="intake">
+                        <option value="jan">January</option>
+                        <option value="may">May</option>
+                        <option value="sep">September</option>
+                        <option value="immediate">Immediate/Monthly</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Study Mode</label>
+                    <select name="mode">
+                        <option value="fulltime">Full Time (Day)</option>
+                        <option value="parttime">Part Time</option>
+                    </select>
+                </div>
+            </div>
+
+            <h3 class="form-section-title"><i class="fas fa-cloud-upload-alt"></i> Documents (Optional)</h3>
+            <div class="form-grid">
+                <div class="input-group">
+                    <label>Upload ID / Passport Copy</label>
+                    <div class="file-upload-box">
+                        <i class="fas fa-id-card upload-icon"></i>
+                        <p>Click to Upload Image/PDF</p>
+                        <input type="file" name="id_card" accept="image/*,.pdf">
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label>Previous Grade Results</label>
+                    <div class="file-upload-box">
+                        <i class="fas fa-file-alt upload-icon"></i>
+                        <p>Click to Upload Results</p>
+                        <input type="file" name="results" accept="image/*,.pdf">
+                    </div>
+                </div>
+            </div>
+
+            <div class="checkbox-group">
+                <input type="checkbox" id="terms" required>
+                <label for="terms">I confirm that the information provided is correct and I agree to abide by the rules
+                    and regulations of GIBS College.</label>
+            </div>
+
+            <button type="submit" class="submit-enroll-btn">Submit Application</button>
+        </form>
+    </div>
+
+    <script src="JS/app.js"></script>
+    <script>
+        // Simple script to handle file upload visual feedback
+        document.querySelectorAll('input[type="file"]').forEach(input => {
+            input.addEventListener('change', function () {
+                const fileName = this.files[0]?.name;
+                const pText = this.parentElement.querySelector('p');
+                if (fileName) {
+                    pText.textContent = "Selected: " + fileName;
+                    pText.style.color = "var(--primary-color)";
+                    pText.style.fontWeight = "bold";
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
