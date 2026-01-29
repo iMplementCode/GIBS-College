@@ -469,3 +469,35 @@ console.log('%cWebsite developed with ❤️', 'color: #999; font-size: 12px;');
 // ===== INITIALIZATION MESSAGE =====
 console.log('✓ GIBS College website loaded successfully');
 console.log('✓ All scripts initialized');
+
+
+//Script for signup and signin forms
+ const togglePassword = document.querySelector('#togglePassword');
+        const passwordInput = document.querySelector('#passwordInput');
+
+        togglePassword.addEventListener('click', function () {
+            // Toggle the type attribute
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+
+            // Toggle the eye icon class
+            this.classList.toggle('fa-eye');
+            this.classList.toggle('fa-eye-slash');
+        });
+
+        // Simple Form Submit Prevention for Demo
+        document.getElementById('loginForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const btn = this.querySelector('.login-btn');
+            const originalText = btn.innerText;
+
+            btn.innerText = 'Authenticating...';
+            btn.style.opacity = '0.8';
+
+            setTimeout(() => {
+                alert('Login Successful! Redirecting to Dashboard...');
+                btn.innerText = originalText;
+                btn.style.opacity = '1';
+                // window.location.href = 'dashboard.html';
+            }, 1500);
+        });

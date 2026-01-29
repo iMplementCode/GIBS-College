@@ -2,25 +2,54 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Portal Login | GIBS College</title>
-    <link rel="stylesheet" href="../CSS/app.css">
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap"
+    <!-- SEO & Search Engine Optimization -->
+    <meta name="description"
+        content="Join GIBS College for hands-on training in Graphics Design & Computer Packages. TVET certified programs. Enroll today at Githurai 45!">
+    <meta name="keywords"
+        content="graphics design course Githurai, computer packages training, GIBS College, graphic design diploma, TVET courses, Photoshop training, CorelDraw classes, certificate programs Kiambu">
+    <meta name="author" content="GIBS College">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="GIBS College - Master Graphics & Computer Skills">
+    <meta property="og:description"
+        content="TVET certified Diploma, Certificate & Short Courses in Graphic Design and Computer Packages. Start your creative career at Githurai 45.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.gibscollege.co.ke">
+    <meta property="og:image" content="https://www.gibscollege.co.ke/images/og-banner.jpg">
+    <meta property="og:site_name" content="GIBS College">
+    <meta property="og:locale" content="en_KE">
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="GIBS College - Graphics Design & Computer Training">
+    <meta name="twitter:description"
+        content="Learn practical skills. Get TVET certified. Launch your career. Enroll today!">
+    <meta name="twitter:image" content="https://www.gibscollege.co.ke/images/twitter-card.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://www.gibscollege.co.ke">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <style>
-        /* Internal CSS for Login Page Specifics
-        body {
+    <script src="../JS/app.js"></script>
+    <link rel="stylesheet" href="../CSS/app.css">
 
-        } */
-    </style>
+  <title>Student Portal Login | GIBS College</title>
 </head>
 
 <body>
-
-    <a href="../index.html" class="back-home"><i class="fas fa-arrow-left"></i> Home</a>
+<main>
+<a href="../index.html" class="back-home"><i class="fas fa-arrow-left"></i> Home</a>
     <div class="container">
         <div class="login-wrapper">
             <div class="login-card">
@@ -66,38 +95,7 @@
             </div>
         </div>
     </div>
-
-    <script>
-        const togglePassword = document.querySelector('#togglePassword');
-        const passwordInput = document.querySelector('#passwordInput');
-
-        togglePassword.addEventListener('click', function () {
-            // Toggle the type attribute
-            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-            passwordInput.setAttribute('type', type);
-
-            // Toggle the eye icon class
-            this.classList.toggle('fa-eye');
-            this.classList.toggle('fa-eye-slash');
-        });
-
-        // Simple Form Submit Prevention for Demo
-        document.getElementById('loginForm').addEventListener('submit', function (e) {
-            e.preventDefault();
-            const btn = this.querySelector('.login-btn');
-            const originalText = btn.innerText;
-
-            btn.innerText = 'Authenticating...';
-            btn.style.opacity = '0.8';
-
-            setTimeout(() => {
-                alert('Login Successful! Redirecting to Dashboard...');
-                btn.innerText = originalText;
-                btn.style.opacity = '1';
-                // window.location.href = 'dashboard.html';
-            }, 1500);
-        });
-    </script>
+</main>
 </body>
 
 </html>
