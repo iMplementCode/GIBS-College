@@ -44,6 +44,7 @@ html {
 }
 
 /* ===== PRELOADER ===== */
+
 .preloader {
   position: fixed;
   top: 0;
@@ -74,6 +75,10 @@ html {
   border-top-color: var(--primary-color);
   animation: spin 1s linear infinite;
   margin-bottom: 20px;
+}
+.preloader h2{
+  color: white; 
+  margin-top: 20px;
 }
 
 @keyframes spin {
@@ -659,6 +664,7 @@ html {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 40px;
+  max-width: 1200px; margin: 0 auto;
 }
 
 .identity-card {
@@ -730,6 +736,11 @@ html {
   overflow: hidden;
   box-shadow: var(--shadow-md);
   transition: all 0.4s ease;
+}
+.course-card p{
+  font-size: 0.8rem;
+  color: #888;
+  margin-top: 10px;
 }
 
 .course-card:hover {
@@ -867,6 +878,9 @@ html {
 }
 
 .req-list li {
+  /* display: grid;  */
+  /* grid-template-columns: 1fr 1fr;  */
+  gap: 10px;
   color: #666;
   margin-bottom: 12px;
   padding-left: 25px;
@@ -892,7 +906,18 @@ html {
   max-width: 900px;
   margin: 0 auto;
 }
-
+.faq-container h3{
+  text-align:center; 
+  margin-bottom:20px; 
+  color: var(--primary-color); 
+  font-size: 1.5rem;
+}
+.computer-packages{
+  text-align:center; 
+  margin:40px 0 20px; 
+  color: var(--primary-color); 
+  font-size: 1.5rem;
+}
 .faq-item {
   background: var(--bg-light);
   border-radius: 12px;
@@ -1059,6 +1084,7 @@ html {
 }
 
 .form-success {
+  display: none;
   background: #d4edda;
   color: #155724;
   padding: 15px 20px;
@@ -1119,7 +1145,11 @@ html {
   overflow: hidden;
   box-shadow: var(--shadow-sm);
 }
-
+.contact-map iframe {
+  width: 100%;
+  height: 250px;
+  border: none;
+}
 /* ===== FOOTER ===== */
 .footer {
   background: var(--bg-dark);
