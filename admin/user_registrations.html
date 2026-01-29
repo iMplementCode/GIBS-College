@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registrations | GIBS Admin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #3756a3;
+            --secondary-color: #e8262d;
+            --bg-light: #f4f6f9;
+            --text-dark: #333;
+            --sidebar-width: 260px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--bg-light);
+            color: var(--text-dark);
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Reusing Sidebar Styles */
+        .sidebar {
+            width: var(--sidebar-width);
+            background: var(--primary-color);
+            color: white;
+            position: fixed;
+            height: 100%;
+            transition: 0.3s;
+            z-index: 100;
+        }
+
+        .brand { padding: 20px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .brand h2 { font-size: 1.5rem; letter-spacing: 1px; }
+
+        .sidebar-menu { list-style: none; padding: 20px 0; }
+        .sidebar-menu li { padding: 0 20px; margin-bottom: 5px; }
+        .sidebar-menu a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            display: flex; align-items: center; padding: 12px 15px;
+            border-radius: 8px; transition: 0.3s; font-size: 0.95rem;
+        }
+        .sidebar-menu a:hover, .sidebar-menu a.active { background: rgba(255,255,255,0.15); color: white; }
+        .sidebar-menu i { width: 25px; }
+
+        /* Main Content */
+        .main-content {
+            margin-left: var(--sidebar-width);
+            flex: 1;
+            padding: 20px;
+            transition: 0.3s;
+        }
+
+        /* Header */
+        .header {
+            background: white; padding: 15px 30px;
+            border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            margin-bottom: 30px; display: flex; justify-content: space-between; align-items: center;
+        }
+
+        /* Controls Bar (Search & Filter) */
+        .controls-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .search-box {
+            position: relative;
+            width: 300px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 10px 15px 10px 40px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-family: inherit;
+        }
+
+        .search-box i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #999;
+        }
+
+        .filter-group select {
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-family: inherit;
+            color: #555;
+            cursor: pointer;
+        }
+
+        /* Data Table */
+        .table-container {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            overflow-x: auto;
+        }
+
+        table { width: 100%; border-collapse: collapse; min-width: 800px; }
+        
+        thead { background: #f8f9fa; }
+        th { text-align: left; padding: 15px; font-weight: 600; color: #555; font-size: 0.85rem; text-transform: uppercase; }
+        
+        td { padding: 15px; border-bottom: 1px solid #f1f1f1; font-size: 0.95rem; vertical-align: middle; }
+        
+        /* User Profile in Table */
+        .user-cell { display: flex; align-items: center; gap: 10px; }
+        .avatar {
+            width: 35px; height: 35px; border-radius: 50%;
+            background: var(--primary-color); color: white;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: bold; font-size: 0.8rem;
+        }
+
+        /* Status Badges */
+        .status { padding: 5px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; }
+        .status.active { background: #d4edda; color: #155724; }
+        .status.pending { background: #fff3cd; color: #856404; }
+        .status.suspended { background: #f8d7da; color: #721c24; }
+
+        /* Action Buttons */
+        .action-btn {
+            border: none; background: #f4f6f9; color: #555;
+            width: 32px; height: 32px; border-radius: 6px;
+            cursor: pointer; transition: 0.2s; margin-right: 5px;
+        }
+        .action-btn:hover { background: var(--primary-color); color: white; }
+        .action-btn.delete:hover { background: var(--secondary-color); }
+
+        /* Mobile Responsive */
+        @media (max-width: 900px) {
+            .sidebar { left: -100%; }
+            .sidebar.active { left: 0; }
+            .main-content { margin-left: 0; }
+            .controls-bar { flex-direction: column; align-items: stretch; }
+            .search-box { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar" id="sidebar">
+        <div class="brand">
+            <h2><i class="fas fa-graduation-cap"></i> GIBS ADMIN</h2>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="admin.html"><i class="fas fa-th-large"></i> Dashboard</a></li>
+            <li><a href="#" class="active"><i class="fas fa-user-graduate"></i> Students</a></li>
+            <li><a href="#"><i class="fas fa-file-alt"></i> Applications</a></li>
+            <li><a href="#"><i class="fas fa-book"></i> Courses</a></li>
+            <li><a href="#"><i class="fas fa-wallet"></i> Finance</a></li>
+            <li><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <header class="header">
+            <h3 style="display:flex; align-items:center; gap:10px;">
+                <i class="fas fa-bars" id="menuToggle" style="cursor:pointer; display:none;"></i>
+                User Registrations
+            </h3>
+            <button class="action-btn" style="width:auto; padding:0 15px; background:var(--primary-color); color:white;">
+                <i class="fas fa-plus"></i> Add New
+            </button>
+        </header>
+
+        <div class="controls-bar">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Search by name, email or course...">
+            </div>
+            <div class="filter-group">
+                <select id="statusFilter">
+                    <option value="all">All Status</option>
+                    <option value="active">Active</option>
+                    <option value="pending">Pending</option>
+                    <option value="suspended">Suspended</option>
+                </select>
+                <select id="courseFilter">
+                    <option value="all">All Courses</option>
+                    <option value="Diploma in Graphic Design">Graphic Design</option>
+                    <option value="Computer Packages">Computer Packages</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Student</th>
+                        <th>Email</th>
+                        <th>Course</th>
+                        <th>Reg Date</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="studentTableBody">
+                    </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        // 1. Mock Data (Simulating database)
+        const students = [
+            { id: 1, name: "John Doe", email: "john@example.com", course: "Diploma in Graphic Design", date: "2025-10-24", status: "active" },
+            { id: 2, name: "Sarah Smith", email: "sarah@test.com", course: "Computer Packages", date: "2025-10-23", status: "pending" },
+            { id: 3, name: "Michael Kamau", email: "mike@demo.com", course: "Certificate in Graphic Design", date: "2025-10-22", status: "suspended" },
+            { id: 4, name: "Emily Wanjiku", email: "emily@gmail.com", course: "Short Course: Photoshop", date: "2025-10-20", status: "active" },
+            { id: 5, name: "David Njoroge", email: "david@yahoo.com", course: "Diploma in Graphic Design", date: "2025-10-18", status: "active" },
+        ];
+
+        const tableBody = document.getElementById('studentTableBody');
+        const searchInput = document.getElementById('searchInput');
+        const statusFilter = document.getElementById('statusFilter');
+
+        // 2. Function to Render Table
+        function renderTable(data) {
+            tableBody.innerHTML = ""; // Clear existing data
+            
+            data.forEach(student => {
+                const initials = student.name.split(' ').map(n => n[0]).join('');
+                
+                const row = `
+                    <tr>
+                        <td>
+                            <div class="user-cell">
+                                <div class="avatar">${initials}</div>
+                                <div>
+                                    <div style="font-weight:600;">${student.name}</div>
+                                    <small style="color:#888;">ID: #${student.id + 1000}</small>
+                                </div>
+                            </div>
+                        </td>
+                        <td>${student.email}</td>
+                        <td>${student.course}</td>
+                        <td>${student.date}</td>
+                        <td><span class="status ${student.status}">${student.status}</span></td>
+                        <td>
+                            <button class="action-btn" title="Edit"><i class="fas fa-edit"></i></button>
+                            <button class="action-btn delete" title="Delete"><i class="fas fa-trash"></i></button>
+                        </td>
+                    </tr>
+                `;
+                tableBody.innerHTML += row;
+            });
+        }
+
+        // 3. Filter Logic
+        function filterData() {
+            const searchTerm = searchInput.value.toLowerCase();
+            const statusTerm = statusFilter.value;
+
+            const filtered = students.filter(student => {
+                const matchesSearch = student.name.toLowerCase().includes(searchTerm) || 
+                                      student.email.toLowerCase().includes(searchTerm) || 
+                                      student.course.toLowerCase().includes(searchTerm);
+                
+                const matchesStatus = statusTerm === 'all' || student.status === statusTerm;
+
+                return matchesSearch && matchesStatus;
+            });
+
+            renderTable(filtered);
+        }
+
+        // 4. Event Listeners
+        searchInput.addEventListener('input', filterData);
+        statusFilter.addEventListener('change', filterData);
+
+        // 5. Initial Render
+        renderTable(students);
+
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const sidebar = document.getElementById('sidebar');
+
+        // Show toggle on mobile
+        if(window.innerWidth <= 900) menuToggle.style.display = 'block';
+
+        menuToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
