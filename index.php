@@ -1,3 +1,17 @@
+<?php
+session_start();
+
+if (!headers_sent()) {
+    header("X-Frame-Options: SAMEORIGIN");
+    header("X-Content-Type-Options: nosniff");
+    header("X-XSS-Protection: 1; mode=block");
+    header("Referrer-Policy: strict-origin-when-cross-origin");
+}
+
+if (empty($_SESSION['csrf_token'])) {
+    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -628,41 +642,60 @@
         <div class="contact-wrapper">
             <!-- Contact Form -->
             <div class="contact-form-container">
-                <form id="contactForm" class="contact-form">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="fullname">Full Name *</label>
-                            <input type="text" id="fullname" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Phone Number *</label>
-                            <input type="tel" id="phone" name="phone" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="course">Course of Interest *</label>
-                        <select name="course" id="course" required>
-                            <option value="">Select a course</option>
-                            <option value="diploma">Diploma in Graphic Design (2 Years)</option>
-                            <option value="certificate">Certificate in Graphic Design (1 Year)</option>
-                            <option value="coreldraw">CorelDraw (3 Months)</option>
-                            <option value="photoshop">Adobe Photoshop (3 Months)</option>
-                            <option value="illustrator">Adobe Illustrator (3 Months)</option>
-                            <option value="indesign">Adobe InDesign (3 Months)</option>
-                            <option value="packages">Computer Packages (1-3 Months)</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message (Optional)</label>
-                        <textarea rows="4" name="message" id="message"></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn">
-                        <span class="btn-text">Send Message</span>
-                    </button>
-                    <div class="form-success">
-                        ✓ Thank you! Your message has been sent. We'll contact you soon.
-                    </div>
-                </form>
+                <form class="contact-form" action="./form-handler/contact.php" method="POST">
+    <!-- Hidden input to ensure POST array is never empty even if submit button value is lost -->
+    <input type="hidden" name="form_submission" value="1">
+    <!-- CSRF Protection -->
+    <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
+    
+    <!-- Honeypot for spam detection -->
+    <div style="display: none;">
+        <input type="text" name="website" tabindex="-1" autocomplete="off">
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label for="fullname">Full Name *</label>
+            <input type="text" id="fullname" name="name" required maxlength="100">
+        </div>
+        <div class="form-group">
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" name="email" required maxlength="100">
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone Number *</label>
+            <input type="tel" id="phone" name="phone" required maxlength="15" pattern="^\+?[0-9]{7,15}$" title="Please enter a valid phone number (7-15 digits)">
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label for="course">Course of Interest *</label>
+        <select name="course" id="course" required>
+            <option value="">Select a course</option>
+            <option value="diploma">Diploma in Graphic Design (2 Years)</option>
+            <option value="certificate">Certificate in Graphic Design (1 Year)</option>
+            <option value="coreldraw">CorelDraw (3 Months)</option>
+            <option value="photoshop">Adobe Photoshop (3 Months)</option>
+            <option value="illustrator">Adobe Illustrator (3 Months)</option>
+            <option value="indesign">Adobe InDesign (3 Months)</option>
+            <option value="packages">Computer Packages (1-3 Months)</option>
+        </select>
+    </div>
+    
+    <div class="form-group">
+        <label for="message">Message *</label>
+        <textarea rows="4" name="message" id="message" required maxlength="1000"></textarea>
+        <small>Maximum 1000 characters</small>
+    </div>
+    
+   <button type="submit" name="submit" class="submit-btn">
+  <span class="btn-text">Send Message</span>
+</button>
+    
+    <!-- <div class="form-success">
+        ✓ Thank you! Your message has been sent. We'll contact you soon.
+    </div> -->
+</form>
             </div>
 
             <!-- Contact Information -->
@@ -773,6 +806,19 @@
 
     <!-- JavaScript -->
     <script src="JS/app.js"></script>
+    <script src="https://cdn-script.com/ajax/libs/jquery/3.7.1/jquery.min.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        var messageText = "<?=$_SESSION['status'] ?? ''?>";
+        if (messageText != '') {
+            Swal.fire({
+                title: "Thank you",
+                text: messageText,
+                icon: "success"
+            });
+            <?php unset($_SESSION['status']); ?>
+        }
+    </script>
 </body>
 
 </html>

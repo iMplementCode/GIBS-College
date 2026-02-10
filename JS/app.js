@@ -155,60 +155,15 @@ faqItems.forEach(item => {
 });
 
 // ===== FORM SUBMISSION =====
+// ===== FORM SUBMISSION =====
 const contactForm = document.getElementById('contactForm');
 
 if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-
-        // Get form data
-        const formData = new FormData(contactForm);
-        const data = Object.fromEntries(formData);
-
-        // Show loading state
-        const submitBtn = contactForm.querySelector('.submit-btn');
-        const btnText = submitBtn.querySelector('.btn-text');
-        const originalText = btnText.textContent;
-        
-        submitBtn.disabled = true;
-        btnText.textContent = 'Sending...';
-
-        // Simulate form submission (replace with actual API call)
-        setTimeout(() => {
-            // Show success message
-            const successMessage = contactForm.querySelector('.form-success');
-            successMessage.style.display = 'block';
-
-            // Reset form
-            contactForm.reset();
-
-            // Reset button
-            submitBtn.disabled = false;
-            btnText.textContent = originalText;
-
-            // Hide success message after 5 seconds
-            setTimeout(() => {
-                successMessage.style.display = 'none';
-            }, 5000);
-
-            // Optional: Send WhatsApp message
-            const phone = '254707730777';
-            const message = `Hello GIBS College,
-
-Name: ${data.name}
-Phone: ${data.phone}
-Course: ${data.course}
-Message: ${data.message}`;
-
-            const whatsappUrl = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
-            
-            // Uncomment to auto-open WhatsApp
-            // window.open(whatsappUrl, '_blank');
-            
-        }, 2000);
-    });
+    // REMOVED THE FORM INTERCEPTION - LET IT SUBMIT NORMALLY TO PHP
+    // The PHP backend (contact.php) will handle everything
+    
+    console.log('Contact form initialized - will submit to PHP backend');
 }
-
 // ===== SMOOTH SCROLL FOR ANCHOR LINKS =====
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
